@@ -3,7 +3,7 @@ import React from 'react'
 function Button({
     children,
     type = 'button',
-    bgColor = 'bg-blue-600',
+    bgColor = 'bg-blue-600 hover:bg-blue-800',
     textColor = 'text-white',
     className = '',
     ...props
@@ -11,7 +11,7 @@ function Button({
     return (
         <button
             type={type}
-            className={`px-4 py-2 rounded-lg ${bgColor} ${textColor} ${className}`}
+            className={`rounded-2xl px-4 py-2 ${bgColor} ${textColor} ${className}`}
             {...props}
         >
             {children}

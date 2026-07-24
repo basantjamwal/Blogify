@@ -33,63 +33,53 @@ function Login() {
     }
 
     return (
-        <div>
-            <div>
+        <div className="bg-white w-1/3 flex justify-center items-center rounded-2xl p-8 mx-auto text-black shadow-2xl my-6">
+            <div className="flex flex-col items-center gap-y-6 w-full max-w-sm">
 
-                <div>
-                    <span>
-                        <Logo />
-                    </span>
+                <div className='shadow-2xl rounded-full'>
+                    <Logo />
                 </div>
 
-                <h2>SIGN IN TO UR ACCOUNT</h2>
+                <h2 className="text-xl font-bold">Log into Blogify</h2>
 
-                <p>
-                    DONT HAVE A ACCOUNT?
-                    <Link to="/signup">
+                <p className="text-sm">
+                    Don’t have an account?{" "}
+                    <Link to="/signup" className="text-blue-600 hover:underline">
                         Sign up
                     </Link>
                 </p>
 
-                {error && <p> className = ""
-                    {error}</p>}
+                {error && (
+                    <p className="text-red-600 font-medium">{error}</p>
+                )}
 
-                <Form onSubmit={handleSubmit(login)}>
-
+                <Form onSubmit={handleSubmit(login)} className="w-full flex flex-col gap-y-4 ">
                     <Input
-                        label="Email: "
-                        placeholder="Enter ur email"
+                        placeholder="Enter your email"
                         type="email"
-
                         {...register("email", {
                             required: true,
                             validate: {
-                                matchPatern: (value) => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value) ||
-                                    "Email address must be a valid  address",
-                            }
+                                matchPatern: (value) =>
+                                    /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value) ||
+                                    "Email address must be valid",
+                            },
                         })}
                     />
 
                     <Input
-                        label="Password:"
-                        placeholder="password"
+                        placeholder="Password"
                         type="password"
-
-                        {...register("password", {
-                            required: true,
-                        })}
+                        {...register("password", { required: true })}
                     />
 
-                    <Button
-                        type='submit'
-                        className='w-full'
-                    >Sign in</Button>
-
+                    <Button type="submit" className=" bg-blue-600 text-white py-2 w-auto">
+                        Sign in
+                    </Button>
                 </Form>
-
-
             </div>
         </div>
+
     )
 }
 

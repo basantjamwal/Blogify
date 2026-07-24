@@ -4,18 +4,19 @@ const Input = React.forwardRef(function Input({
     label,
     type = 'text',
     placeholder = '',
-    className = '',
+    className = 'bg-transparent font-sans border-gray-600',
     ...props
 }, ref) {
     const id = useId()
 
     return (
-        <div className='w-full'>
+        <div className=''>
             {label && <label className='inline-block mb-1 pl-1' htmlFor={id}>{label}</label>}
             <input
                 type={type}
                 placeholder={placeholder}
-                className={`border rounded py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500 ${className}`}
+                className={`border py-2 px-3 focus:outline-none focus:ring-2 w-full
+                    rounded-2xl focus:ring-blue-500 ${className}`}
                 {...props}
                 ref={ref}
                 id={id}
