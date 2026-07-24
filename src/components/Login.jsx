@@ -56,7 +56,7 @@ function Login() {
                 <Form onSubmit={handleSubmit(login)} className="w-full flex flex-col gap-y-4 ">
                     <Input
                         placeholder="Enter your email"
-                        type="email"
+                        type="Enter your Email"
                         {...register("email", {
                             required: true,
                             validate: {
@@ -69,7 +69,7 @@ function Login() {
 
                     <Input
                         placeholder="Password"
-                        type="password"
+                        label="Password"
                         {...register("password", { required: true })}
                     />
 
